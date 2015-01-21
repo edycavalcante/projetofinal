@@ -1,0 +1,52 @@
+<%= form_for @entrada, :html => { :class => "form-horizontal entrada" } do |f| %>
+
+    <% if @entrada.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@entrada.errors.count, "error") %> prohibited this entrada from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @entrada.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :produto_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:produto_id, Produto.all, :id, :nome , {:prompt=>true}, {:class=>'form-control'}) %>
+    </div>
+    <%= error_span(@entrada[:produto_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :quantidade, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :quantidade, :class => 'form-control' %>
+    </div>
+    <%= error_span(@entrada[:quantidade]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :valor_compra, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :valor_compra, :class => 'form-control' %>
+    </div>
+    <%= error_span(@entrada[:valor_compra]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :data_compra, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :data_compra, :class => 'form-control' %>
+    </div>
+    <%= error_span(@entrada[:data_compra]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            entradas_path, :class => 'btn btn-default' %>
+
+<% end %>
