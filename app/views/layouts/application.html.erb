@@ -51,6 +51,16 @@
             <li><%= link_to "Produto", produtos_path	  %></li>
             <li><%= link_to "Tipo", tipos_path  %></li>
             <li><%= link_to "Entrada", entradas_path %></li>
+            
+             <% if usuario_signed_in? %>
+              
+          <li><%= link_to 'Editar perfil', edit_usuario_registration_path, :class => 'navbar-link' %> </li>
+          <li><%= link_to "Deslogar", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li>Olá, <strong><%= current_usuario.email %></strong></li>
+<% else %>
+ <li> <%= link_to "Registre-se", new_usuario_registration_path, :class => 'navbar-link'  %></li> 
+  <li><%= link_to "Login", new_usuario_session_path, :class => 'navbar-link'  %></li>
+<% end %>
           </ul>
         </div>
       </div>
