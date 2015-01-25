@@ -1,5 +1,7 @@
 class TiposController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_tipo, only: [:show, :edit, :update, :destroy]
+  
 
   respond_to :html
 

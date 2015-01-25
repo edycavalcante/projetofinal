@@ -1,4 +1,6 @@
 class EntradasController < ApplicationController
+  before_action :authenticate_usuario!
+  
   before_action :set_entrada, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
