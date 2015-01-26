@@ -6,11 +6,12 @@ class ProdutosController < ApplicationController
 
   def index
     @produtos = Produto.all
+    @produtos = Produto.paginate(:page => params[:page], per_page: 2)
     respond_with(@produtos)
   end
 
   def show
-    respond_with(@produto)
+   
   end
 
   def new
@@ -23,8 +24,18 @@ class ProdutosController < ApplicationController
 
   def create
     @produto = Produto.new(produto_params)
-    @produto.save
-    respond_with(@produto)
+
+    respond_to do |format|
+      if @produto.save
+        format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
+        format.json { render :show, status: :created, location: @produto }
+        
+      else
+        format.html { render :new }
+        format.json { render json: @produto.errors, status: :unprocessable_entity }
+        
+      end
+    end
   end
 
   def update
@@ -39,7 +50,7 @@ class ProdutosController < ApplicationController
 
   private
     def set_produto
-      @produto = Produto.find(params[:id])
+       @produto = Produto.friendly.find(params[:id])
     end
 
     def produto_params

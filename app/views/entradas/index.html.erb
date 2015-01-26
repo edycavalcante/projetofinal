@@ -18,7 +18,7 @@
     <% @entradas.each do |entrada| %>
       <tr>
         <td><%= link_to entrada.id, entrada_path(entrada) %></td>
-        <td><%= entrada.produto_id %></td>
+        <td><%= entrada.produto.nome %></td>
         <td><%= entrada.quantidade %></td>
         <td><%= entrada.valor_compra %></td>
         <td><%= entrada.data_compra %></td>
@@ -36,7 +36,10 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @entradas, :previous_label => 'Anterior', :next_label => 'Próxima' %>
+</br>
+</br>
+</br>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_entrada_path,
             :class => 'btn btn-primary' %>

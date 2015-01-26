@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      produto:
+        created_at: "criado em"
+      entrada:
+        created_at: "criado em"
+      tipo:
+        created_at: "criado em"

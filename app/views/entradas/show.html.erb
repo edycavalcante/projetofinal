@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:produto_id) %>:</strong></dt>
-  <dd><%= @entrada.produto_id %></dd>
+  <dd><%= @entrada.produto.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:quantidade) %>:</strong></dt>
   <dd><%= @entrada.quantidade %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor_compra) %>:</strong></dt>

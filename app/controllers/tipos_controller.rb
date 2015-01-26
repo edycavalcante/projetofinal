@@ -7,11 +7,12 @@ class TiposController < ApplicationController
 
   def index
     @tipos = Tipo.all
+    @tipos = Tipo.paginate(:page => params[:page], per_page: 2)
     respond_with(@tipos)
   end
 
   def show
-    respond_with(@tipo)
+    
   end
 
   def new
@@ -22,10 +23,22 @@ class TiposController < ApplicationController
   def edit
   end
 
+ 
+  
   def create
     @tipo = Tipo.new(tipo_params)
-    @tipo.save
-    respond_with(@tipo)
+
+    respond_to do |format|
+      if @tipo.save
+        format.html { redirect_to @tipo, notice: 'Tipo criado com sucesso.' }
+        format.json { render :show, status: :created, location: @tipo }
+        
+      else
+        format.html { render :new }
+        format.json { render json: @tipo.errors, status: :unprocessable_entity }
+        
+      end
+    end
   end
 
   def update
@@ -40,7 +53,7 @@ class TiposController < ApplicationController
 
   private
     def set_tipo
-      @tipo = Tipo.find(params[:id])
+      @tipo = Tipo.friendly.find(params[:id])
     end
 
     def tipo_params

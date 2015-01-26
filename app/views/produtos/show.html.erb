@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:valor_venda) %>:</strong></dt>
   <dd><%= @produto.valor_venda %></dd>
   <dt><strong><%= model_class.human_attribute_name(:tipo_id) %>:</strong></dt>
-  <dd><%= @produto.tipo_id %></dd>
+  <dd><%= @produto.tipo.nome %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -19,7 +19,7 @@
         <td><%= link_to produto.id, produto_path(produto) %></td>
         <td><%= produto.nome %></td>
         <td><%= produto.valor_venda %></td>
-        <td><%= produto.tipo_id %></td>
+        <td><%= produto.tipo.nome %></td>
         <td><%=l produto.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -34,6 +34,11 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @produtos, :previous_label => 'Anterior', :next_label => 'Próxima'  %>
+</br>
+</br>
+</br>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_produto_path,

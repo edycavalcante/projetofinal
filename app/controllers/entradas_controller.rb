@@ -7,11 +7,12 @@ class EntradasController < ApplicationController
 
   def index
     @entradas = Entrada.all
+    @entradas = Entrada.paginate(:page => params[:page], per_page: 2)
     respond_with(@entradas)
   end
 
   def show
-    respond_with(@entrada)
+   
   end
 
   def new
@@ -22,10 +23,20 @@ class EntradasController < ApplicationController
   def edit
   end
 
-  def create
+ def create
     @entrada = Entrada.new(entrada_params)
-    @entrada.save
-    respond_with(@entrada)
+
+    respond_to do |format|
+      if @entrada.save
+        format.html { redirect_to @entrada, notice: 'Entrada criado com sucesso.' }
+        format.json { render :show, status: :created, location: @entrada }
+        
+      else
+        format.html { render :new }
+        format.json { render json: @entrada.errors, status: :unprocessable_entity }
+        
+      end
+    end
   end
 
   def update
@@ -41,6 +52,7 @@ class EntradasController < ApplicationController
   private
     def set_entrada
       @entrada = Entrada.find(params[:id])
+    
     end
 
     def entrada_params
