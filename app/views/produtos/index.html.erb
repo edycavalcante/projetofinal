@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to produto.id, produto_path(produto) %></td>
         <td><%= produto.nome %></td>
-        <td><%= produto.valor_venda %></td>
+        <td><%= valor_formatado(produto.valor_venda) %></td>
         <td><%= produto.tipo.nome %></td>
         <td><%=l produto.created_at %></td>
         <td>

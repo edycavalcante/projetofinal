@@ -13,8 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %> <i>(manter em branco, caso não queira alterar)</i><br />
+    <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
   </div>
 
   <div class="field">
@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
   </div>
 
   <div class="actions">
@@ -36,4 +36,4 @@
 
 <p>Unhappy? <%= button_to "Cancelar sua conta ?", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Voltar", :back %>

@@ -33,8 +33,8 @@ Active Record e Migration
 Association
 Validations
 Layout e Partial
-Helper (Custom)
-scope
+Helper (Custom)*
+scope*
 Flash
 - Heroku
 - Framework CSS (Gamby, Twitter Bootstrap, Foundation, Bourbon)
@@ -48,11 +48,11 @@ Heroku: [URL]
 
 PROJETO ETAPA II:
 Requisitos não funcionais:
--Ajax
+-Ajax *
 -Content Negotion (xml, json, html, atom/RSS)
 -Slug URL; friendly_id
 -Session & login (criptografia com salt, bcrypt); Devise; Active Admin
--Mail
+-Mail *
 -i18n
 -2 gems inéditas
 EXTRA

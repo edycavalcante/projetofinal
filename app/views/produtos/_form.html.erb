@@ -3,7 +3,7 @@
     <% if @produto.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@produto.errors.count, "erro") %>, de validação antes de adicionar produto:</h3>
       </div>
       <div class="panel-body">
         <ul>
@@ -36,7 +36,8 @@
     </div>
     <%= error_span(@produto[:tipo_id]) %>
   </div>
-
+</br>
+</br>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

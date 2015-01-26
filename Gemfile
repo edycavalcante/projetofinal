@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ### gem novas
 
-
+gem 'devise-i18n'
 #url amigavel
 gem 'friendly_id', '~> 5.1.0'
 #paginacao

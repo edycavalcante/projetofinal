@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     attributes:
       produto:
-        created_at: "criado em"
+        created_at: "Criado em"
       entrada:
-        created_at: "criado em"
+        created_at: "Criado em"
       tipo:
-        created_at: "criado em"
+        created_at: "Criado em"

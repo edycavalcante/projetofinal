@@ -20,8 +20,8 @@
         <td><%= link_to entrada.id, entrada_path(entrada) %></td>
         <td><%= entrada.produto.nome %></td>
         <td><%= entrada.quantidade %></td>
-        <td><%= entrada.valor_compra %></td>
-        <td><%= entrada.data_compra %></td>
+        <td><%= valor_formatado(entrada.valor_compra) %></td>
+        <td><%= format_date(entrada.data_compra) %></td>
         <td><%=l entrada.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
